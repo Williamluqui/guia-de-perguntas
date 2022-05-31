@@ -6,6 +6,28 @@ const btnPergResp = document.getElementById('btn-perg-resp');
 const btnResp = document.getElementById('btn-perg-resp');
 const resposta = document.getElementById('resposta');
 const alerta = document.getElementById('alerta');
+const loaderContainer = document.querySelector('.loader')
+
+//  LOADER PAGINA
+const removeLoader = () => {
+   setTimeout(()=> {
+    loaderContainer.classList.remove('show')
+   }, 1000)
+}
+const showLoader = () =>{
+  loaderContainer.classList.add('show')
+  removeLoader()
+}
+
+
+window.addEventListener('scroll', ()=>{
+  const { clientHeight, scrollHeight, scrollTop } = document.documentElement
+  const isPageBottom = scrollTop + clientHeight >= scrollHeight - 10
+  if(isPageBottom){
+   showLoader()
+  }
+})
+
 
 btnPergResp.addEventListener("click", (e)=>{
     e.preventDefault()
@@ -18,12 +40,12 @@ btnResp.addEventListener("click", (e)=>{
 });
 
 // TRATANDO CAMPO DE DADOS INVALIDOS
-function perguntas (){
+const perguntas = () => {
     if(titulo.value !== "" &&  descricao.value !== "" ){
         bootstrapSuccess()
         setTimeout(() => {
             form.requestSubmit()
-          }, "3000")
+          }, 3000)
         return true;
         
     }else{
@@ -46,7 +68,7 @@ function responda(){
 
 function bootstrapError(){
     $(".bootstrap-growl").remove();
-    $.bootstrapGrowl(" <center> <strong>Erro Preencha Todos os Campos !!</strong> </center>",{
+    $.bootstrapGrowl(" <center> Preencha Todos os Campos !! </center>",{
   type: "danger",
   offset:{from:"top",amount:70},
   align:"center",
@@ -69,4 +91,3 @@ function bootstrapSuccess(){
   stackup_spacing: 10
 })
 }
-

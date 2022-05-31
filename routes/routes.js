@@ -32,7 +32,7 @@ router.get("/",(req, res)=>{
     })   
    } else{
        
-    res.status(500).send({error: true, msg:'Dados não cadastrado !'})
+    res.status(400).send({error: true, msg:'Dados não cadastrados !'})
    }
    
 })
@@ -52,11 +52,15 @@ router.get("/pergunta/:id",(req, res)=>{
                 pergunta: pergunta,
                 respostas: respostas
             });
-         });
-        }else{ // nao encontrada
-            res.redirect("/");
+         })
+        }else{
+            res.status(400)
+            res.render('partials/erro', {url: req.url})
+           
         }
-    });
+       
+    })
+   
 });
 
 router.post("/responder",(req, res) =>{
@@ -72,7 +76,7 @@ router.post("/responder",(req, res) =>{
         console.log(msgErro)
         res.status(500).send({
             error: true, 
-            msg: 'Dados não cadastrado no banco de dados !'})
+            msg: 'Resposta não cadastrada no banco de dados !'})
     });
        
         

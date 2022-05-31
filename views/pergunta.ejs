@@ -1,7 +1,7 @@
 <%- include ('partials/header.ejs') %> 
 <body>
     <%- include ('partials/navbar.ejs') %> 
-    <div class="container">
+    <div class="container -center">
         <hr>
         <h1><%= pergunta.titulo %> </h1>
         <p><%= pergunta.descricao %> </p>
@@ -25,7 +25,8 @@
                    <p> <%= resposta.corpo %> <span class="badge badge-secondary"><%=resposta%></span></p>
                </div> 
            </div>
-          <br>
+          
+         
         <% })%>
         </div>
 </body>
