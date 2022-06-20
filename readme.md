@@ -96,7 +96,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 > Veja o arquivo  [package.json](https://github.com/Williamluqui/guia-de-perguntas/blob/main/package.json)
 
-#### [](https://github.com/tgmarinho/Ecoleta#server-nodejs--typescript)**Server**  ([NodeJS](https://nodejs.org/en/)  )
+#### [](https://github.com/Williamluqui/guia-de-perguntas)**Server**  ([NodeJS](https://nodejs.org/en/)  )
 
 -   **[Express](https://expressjs.com/)**
 
